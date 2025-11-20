@@ -1,4 +1,4 @@
-# ClamAV for Ubuntu  
+# 🛡️ ClamAV Auto & Full Scan Project for Ubuntu  
 
 ### Create directories  
 1. mkdir /home/thts/Project/ClamAV  
