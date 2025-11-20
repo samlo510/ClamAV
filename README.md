@@ -18,29 +18,34 @@ It includes two Bash scripts:
 ## ⚙️ Setup Instructions  
 ### Create directories  
 ```bash
-  mkdir /home/thts/Project/ClamAV  
-  mkdir /home/thts/Project/ClamAV/Log  
-  cd /home/thts/Project/ClamAV  
+mkdir /home/thts/Project/ClamAV  
+mkdir /home/thts/Project/ClamAV/Log  
+cd /home/thts/Project/ClamAV  
 ```
 ### Install ClamAV
-    sudo apt update  
-    sudo apt install clamav clamav-daemon -y  
-
+```bash
+sudo apt update  
+sudo apt install clamav clamav-daemon -y  
+```
 ### Manage Freshclam  
-    ps aux | grep freshclam  
-    sudo systemctl stop clamav-freshclam  
-    sudo freshclam  
-
+```bash
+ps aux | grep freshclam  
+sudo systemctl stop clamav-freshclam  
+sudo freshclam  
+```
 ### Install inotify-tools 
-    sudo apt install inotify-tools -y  
-
+```bash
+sudo apt install inotify-tools -y  
+```
 ### Set permissions for scripts  
-    chmod +x fullscan.sh  
-    chmod +x autoscan.sh  
-
-### Run auto-scan  
-    ./autoscan.sh  
-
+```bash
+chmod +x fullscan.sh  
+chmod +x autoscan.sh  
+```
+### Run auto-scan
+```bash
+./autoscan.sh  
+```
 ## 🔮 Future Plans
 We aim to extend the ClamAV Auto & Full Scan Project with the following improvements:
 - **Scheduled Scans**  
