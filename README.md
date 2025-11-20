@@ -1,1 +1,1 @@
-# Ubuntu_AV
+# ClamAV for Ubuntu
