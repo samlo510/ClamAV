@@ -1,25 +1,42 @@
-# 🛡️ ClamAV Auto & Full Scan Project for Ubuntu  
+# 🛡️ ClamAV Auto & Full Scan Suite for Ubuntu
 
+This project automates antivirus scanning on Ubuntu using **ClamAV**.  
+It includes two Bash scripts:
+
+- **autoscan.sh** → Monitors your `~/下載` (Downloads) folder and scans new files automatically.  
+- **fullscan.sh** → Performs a full system scan and logs results with timestamps.  
+
+---
+
+## 📂 Project Structure
+
+/home/thts/Project/ClamAV  
+├── autoscan.sh  
+├── fullscan.sh  
+└── Log/  
+
+## ⚙️ Setup Instructions  
 ### Create directories  
-1. mkdir /home/thts/Project/ClamAV  
-2. mkdir /home/thts/Project/ClamAV/Log  
-3. cd /home/thts/Project/ClamAV  
-
-### Install ClamAV  
-4. sudo apt update  
-5. sudo apt install clamav clamav-daemon -y  
+```bash
+  mkdir /home/thts/Project/ClamAV  
+  mkdir /home/thts/Project/ClamAV/Log  
+  cd /home/thts/Project/ClamAV  
+```
+### Install ClamAV
+    sudo apt update  
+    sudo apt install clamav clamav-daemon -y  
 
 ### Manage Freshclam  
-6. ps aux | grep freshclam  
-7. sudo systemctl stop clamav-freshclam  
-8. sudo freshclam  
+    ps aux | grep freshclam  
+    sudo systemctl stop clamav-freshclam  
+    sudo freshclam  
 
-### Install inotify-tools  
-9. sudo apt install inotify-tools -y  
+### Install inotify-tools 
+    sudo apt install inotify-tools -y  
 
 ### Set permissions for scripts  
-10. chmod +x fullscan.sh  
-11. chmod +x autoscan.sh  
+    chmod +x fullscan.sh  
+    chmod +x autoscan.sh  
 
 ### Run auto-scan  
-12. ./autoscan.sh  
+    ./autoscan.sh  
