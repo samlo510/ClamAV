@@ -10,8 +10,8 @@ mkdir -p "$LOG_DIR"
 # Record start time
 echo "===== Full system scan started at $(date) =====" | tee -a "$LOG_FILE"
 
-# Run full system scan
-sudo clamscan -r / | tee -a "$LOG_FILE"
+# Run full system scan and capture only summary
+sudo clamscan -r / | grep -A20 "SCAN SUMMARY" | tee -a "$LOG_FILE"
 
 # Record finish time
 echo "===== Full system scan finished at $(date) =====" | tee -a "$LOG_FILE"
