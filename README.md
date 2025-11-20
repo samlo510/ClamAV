@@ -18,8 +18,8 @@ It includes two Bash scripts:
 ## ⚙️ Setup Instructions  
 ### Create directories  
 ```bash
-mkdir /home/thts/Project/ClamAV  
-mkdir /home/thts/Project/ClamAV/Log  
+mkdir -p /home/thts/Project/ClamAV  
+mkdir -p /home/thts/Project/ClamAV/Log  
 cd /home/thts/Project/ClamAV  
 ```
 ### Install ClamAV
