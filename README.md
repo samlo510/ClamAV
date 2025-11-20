@@ -40,3 +40,8 @@ It includes two Bash scripts:
 
 ### Run auto-scan  
     ./autoscan.sh  
+
+## 🔮 Future Plans
+We aim to extend the ClamAV Auto & Full Scan Project with the following improvements:
+- **Scheduled Scans**  
+  Add cron jobs to run `fullscan.sh` automatically (e.g., nightly at 2 AM).
