@@ -8,7 +8,7 @@ It includes two Bash scripts:
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 /home/thts/Project/ClamAV   
 ├── Log/ # Directory to store all ClamAV scan logs  
@@ -68,6 +68,77 @@ Below are **estimated times** based on community reports and typical hardware.
 > - Whether the ClamAV database is up‑to‑date
 > - System load during scanning
 
+
+
+
+# 🖥️ Installing ClamAV Desktop Launchers
+
+## 📂 Per‑User Installation (preferred)
+
+### This installs the launchers only for your account:
+
+### Validate
+    desktop-file-validate clamav-full-scan.desktop  
+    desktop-file-validate clamav-auto-scan.desktop  
+
+### Install into ~/.local/share/applications/  
+    desktop-file-install --dir=$HOME/.local/share/applications clamav-full-scan.desktop  
+    desktop-file-install --dir=$HOME/.local/share/applications clamav-auto-scan.desktop  
+
+### Update desktop database
+    update-desktop-database ~/.local/share/applications  
+
+### Make executable
+    chmod +x ~/.local/share/applications/clamav-full-scan.desktop  
+    chmod +x ~/.local/share/applications/clamav-auto-scan.desktop  
+
+## 🌍 System‑Wide Installation
+
+### This installs the launchers for all users on the system:
+
+### Validate
+    desktop-file-validate clamav-full-scan.desktop  
+    desktop-file-validate clamav-auto-scan.desktop  
+
+### Install into /usr/share/applications/
+    sudo desktop-file-install --dir=/usr/share/applications clamav-full-scan.desktop  
+    sudo desktop-file-install --dir=/usr/share/applications clamav-auto-scan.desktop  
+
+### Update desktop database
+    sudo update-desktop-database /usr/share/applications  
+
+### Make executable
+    sudo chmod +x /usr/share/applications/clamav-full-scan.desktop  
+    sudo chmod +x /usr/share/applications/clamav-auto-scan.desktop  
+
+## 🧪 Test
+
+Search for ClamAV Full System Scan or ClamAV Auto Scan in your application menu. Or copy them to your desktop for double‑click shortcuts:
+
+    cp ~/.local/share/applications/clamav-full-scan.desktop ~/Desktop/  
+    cp ~/.local/share/applications/clamav-auto-scan.desktop ~/Desktop/  
+    chmod +x ~/Desktop/clamav-full-scan.desktop  
+    chmod +x ~/Desktop/clamav-auto-scan.desktop  
+
+## 🗑️ Uninstall
+
+### Per‑user:
+
+    rm ~/.local/share/applications/clamav-full-scan.desktop  
+    rm ~/.local/share/applications/clamav-auto-scan.desktop  
+    update-desktop-database ~/.local/share/applications  
+
+### System‑wide:
+
+    sudo rm /usr/share/applications/clamav-full-scan.desktop  
+    sudo rm /usr/share/applications/clamav-auto-scan.desktop  
+    sudo update-desktop-database /usr/share/applications/  
+
+### Desktop shortcuts:
+    
+    rm ~/Desktop/clamav-full-scan.desktop  
+    rm ~/Desktop/clamav-auto-scan.desktop  
+    
 ## 🔮 Future Plans
 We aim to extend the ClamAV Auto & Full Scan Project with the following improvements:
 - **Scheduled Scans**  
