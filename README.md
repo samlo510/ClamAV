@@ -48,6 +48,25 @@ chmod +x autoscan.sh
 ```bash
 ./autoscan.sh  
 ```
+# ⏱️ ClamAV Full System Scan Duration (Ubuntu)
+
+The duration of a full system scan with ClamAV varies depending on disk size, file count, and hardware performance.  
+Below are **estimated times** based on community reports and typical hardware.
+
+| System Size | Approx. File Count | Hardware Example | Estimated Duration |
+|-------------|--------------------|------------------|-------------------|
+| 50 GB       | ~500k files        | SSD, 4‑core CPU  | 20–30 minutes     |
+| 100 GB      | ~1M files          | SSD, 4‑core CPU  | 40–60 minutes     |
+| 500 GB      | ~3M files          | HDD, 4‑core CPU  | 2–3 hours         |
+| 1 TB        | ~6M files          | HDD, 8‑core CPU  | 4–6 hours         |
+| 2 TB+       | 10M+ files         | HDD/RAID, server | 8+ hours          |
+
+> ⚠️ **Note:** These are approximate values. Actual scan times vary depending on:
+> - Disk type (SSD vs HDD)
+> - CPU speed and cores
+> - Number of small files vs large files
+> - Whether the ClamAV database is up‑to‑date
+> - System load during scanning
 
 ## 🔮 Future Plans
 We aim to extend the ClamAV Auto & Full Scan Project with the following improvements:
