@@ -11,9 +11,11 @@ It includes two Bash scripts:
 ## 📂 Project Structure
 
 /home/thts/Project/ClamAV  
-├── autoscan.sh  
-├── fullscan.sh  
-└── Log/  
+├── Log/ 
+├── clamav-full-scan.desktop
+├── clamav-auto-scan.desktop
+├── fullscan.sh 
+└── autoscan.sh 
 
 ## ⚙️ Setup Instructions  
 ### Create directories  
@@ -46,6 +48,7 @@ chmod +x autoscan.sh
 ```bash
 ./autoscan.sh  
 ```
+
 ## 🔮 Future Plans
 We aim to extend the ClamAV Auto & Full Scan Project with the following improvements:
 - **Scheduled Scans**  
