@@ -11,11 +11,11 @@ It includes two Bash scripts:
 ## 📂 Project Structure
 
 /home/thts/Project/ClamAV  
-├── Log/ 
-├── clamav-full-scan.desktop
-├── clamav-auto-scan.desktop
-├── fullscan.sh 
-└── autoscan.sh 
+├── Log/  
+├── clamav-full-scan.desktop  
+├── clamav-auto-scan.desktop  
+├── fullscan.sh   
+└── autoscan.sh  
 
 ## ⚙️ Setup Instructions  
 ### Create directories  
