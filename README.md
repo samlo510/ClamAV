@@ -10,12 +10,12 @@ It includes two Bash scripts:
 
 ## 📂 Project Structure
 
-/home/thts/Project/ClamAV  
-├── Log/  
-├── clamav-full-scan.desktop  
-├── clamav-auto-scan.desktop  
-├── fullscan.sh   
-└── autoscan.sh  
+/home/thts/Project/ClamAV   
+├── Log/ # Directory to store all ClamAV scan logs  
+├── clamav-full-scan.desktop # Desktop launcher for full system scan  
+├── clamav-auto-scan.desktop # Desktop launcher for auto scan (Downloads folder)  
+├── fullscan.sh # Bash script: full system scan  
+└── autoscan.sh # Bash script: auto scan Downloads folder 
 
 ## ⚙️ Setup Instructions  
 ### Create directories  
