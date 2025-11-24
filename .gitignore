@@ -1,1 +1,3 @@
 touch .gitignore
+# Ignore all .log files
+*.log
