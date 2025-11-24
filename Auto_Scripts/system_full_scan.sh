@@ -1,33 +1,48 @@
 #!/bin/bash
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
-export LANG=C   # safe default for cron
+export LANG=C
 
-# Directories
-DOWNLOAD_DIR="/"
+SCAN_DIR="/"
 LOG_DIR="/home/thts/Project/ClamAV/Log"
-
-# Use both date and time in filename to avoid overwriting/appending duplicates
 LOG_FILE="$LOG_DIR/full_system_scan_$(date +%F_%H-%M-%S).log"
 
-# Ensure log directory exists
 mkdir -p "$LOG_DIR"
 
-# Record start time
 echo "===== Full system scan started at $(date) =====" >> "$LOG_FILE"
 
-# Run full system scan, show everything on terminal, capture output
-SCAN_OUTPUT=$(/usr/bin/clamscan -r "$DOWNLOAD_DIR" | tee /dev/tty)
+# Count total files first
+TOTAL=$(find "$SCAN_DIR" -type f 2>/dev/null | wc -l)
+COUNT=0
+NEXT_MILESTONE=5   # log every 5% milestone
 
-# Extract summary block (from "SCAN SUMMARY" to end)
-SUMMARY=$(echo "$SCAN_OUTPUT" | sed -n '/SCAN SUMMARY/,$p')
+# Temporary file to collect raw scan output
+TMP_SCAN=$(mktemp)
 
-# Log summary only
+# Scan each file individually, capture output
+find "$SCAN_DIR" -type f 2>/dev/null | while read -r file; do
+    COUNT=$((COUNT+1))
+    /usr/bin/clamscan "$file" >> "$TMP_SCAN"
+
+    # Calculate percentage
+    PERCENT=$((COUNT*100/TOTAL))
+
+    # Log every 5% milestone
+    if [ "$PERCENT" -ge "$NEXT_MILESTONE" ]; then
+        echo ">>> Scan progress: $PERCENT% completed at $(date)" >> "$LOG_FILE"
+        NEXT_MILESTONE=$((NEXT_MILESTONE+5))
+    fi
+done
+
+# Extract and log only the final summary
+SUMMARY=$(sed -n '/SCAN SUMMARY/,$p' "$TMP_SCAN")
+
 {
   echo ""
-  echo "----------------------------------- SCAN SUMMARY -----------------------------------"
+  echo "----------------------------------- FINAL SCAN SUMMARY -----------------------------------"
   echo "$SUMMARY"
-  echo "------------------------------------------------------------------------------------"
+  echo "------------------------------------------------------------------------------------------"
 } >> "$LOG_FILE"
 
-# Record finish time
+rm -f "$TMP_SCAN"
+
 echo "===== Full system scan finished at $(date) =====" >> "$LOG_FILE"
