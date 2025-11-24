@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ClamAV Auto Scan
+Comment=Monitor Downloads folder and auto-scan new files
+Exec=/home/thts/Project/ClamAV/autoscan.sh
+Icon=utilities-terminal
+Terminal=true
+Type=Application
+Categories=Utility;Security;
+X-Desktop-File-Install-Version=0.27
