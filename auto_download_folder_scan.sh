@@ -8,13 +8,18 @@ LOG_FILE="$LOG_DIR/download_scan_$(date +%F).log"
 
 mkdir -p "$LOG_DIR"
 
-# Run ClamAV scan (no --summary option!)
-/usr/bin/clamscan -r "$DOWNLOAD_DIR" --infected --log="$LOG_FILE"
+# Run ClamAV scan and capture output
+SCAN_OUTPUT=$(/usr/bin/clamscan -r "$DOWNLOAD_DIR" --infected)
 
-# Append formatted summary block
+# Save full scan output (without ClamAV’s built-in summary header)
+echo "$SCAN_OUTPUT" | sed '/SCAN SUMMARY/,$d' > "$LOG_FILE"
+
+# Append aligned summary block
 {
   echo ""
-  grep -E "Known viruses|Engine version|Scanned directories|Scanned files|Infected files|Data scanned|Time" "$LOG_FILE"
+  echo "----------------------------------- SCAN SUMMARY -----------------------------------"
+  echo "$SCAN_OUTPUT" | grep -E "Known viruses|Engine version|Scanned directories|Scanned files|Infected files|Data scanned|Data read|Time|Start Date|End Date"
+  echo "------------------------------------------------------------------------------------"
 } >> "$LOG_FILE"
 
 echo "Download folder scan completed. Summary appended to: $LOG_FILE"
