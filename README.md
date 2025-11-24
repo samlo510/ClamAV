@@ -10,8 +10,8 @@ It includes two Bash scripts:
 
 # 📂 Project Structure
 
-/home/thts/Project/ClamAV
-├── Log/                          # Directory to store all ClamAV scan logs  
+/home/thts/Project/ClamAV  
+├── Log/                         # Directory to store all ClamAV scan logs  
 ├── Auto_Scripts/                 # Automation scripts running as background services  
 │   └── download_folder_scan.sh   # Bash script: auto scan Downloads folder  
 ├── fullscan.sh                   # Bash script: full system scan  
