@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ClamAV Full System Scan
+Comment=Run a full system ClamAV scan
+Exec=bash /home/thts/Project/ClamAV/fullscan.sh
+Icon=security-high
+Terminal=true
+Type=Application
+Categories=Utility;Security;System;
+X-Desktop-File-Install-Version=0.27
