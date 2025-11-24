@@ -137,8 +137,29 @@ Search for ClamAV Full System Scan or ClamAV Auto Scan in your application menu.
     
     rm ~/Desktop/clamav-full-scan.desktop  
     rm ~/Desktop/clamav-auto-scan.desktop  
-    
-## 🔮 Future Plans
-We aim to extend the ClamAV Auto & Full Scan Project with the following improvements:
-- **Scheduled Scans**  
-  Add cron jobs to run `fullscan.sh` automatically (e.g., nightly at 2 AM).
+
+## Cron Setup
+
+To run the full system ClamAV scan every day at 2 AM, add the following to your crontab:
+
+```cron
+0 2 * * * /home/thts/Project/ClamAV/full_system_scan.sh
+```
+### ┌───────────── minute (0 - 59)
+### │ ┌───────────── hour (0 - 23)
+### │ │ ┌───────────── day of month (1 - 31)
+### │ │ │ ┌───────────── month (1 - 12)
+### │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday=0)
+### │ │ │ │ │
+### │ │ │ │ │
+### 0 2 * * * /home/thts/Project/ClamAV/full_system_scan.sh
+
+---
+
+### 🔍 Notes
+- Use **absolute paths** (`/home/thts/...`) since cron doesn’t load your shell environment.  
+- If you want the job to run as root (to avoid `sudo` issues), edit root’s crontab with:
+  ```bash
+  sudo crontab -e
+
+
