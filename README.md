@@ -10,11 +10,15 @@ It includes two Bash scripts:
 
 # 📂 Project Structure
 
-/home/thts/Project/ClamAV   
-├── Log/ # Directory to store all ClamAV scan logs  
-├── Auto_Scripts/ # Running all .sh file as background service  
-├── fullscan.sh # Bash script: full system scan  
-└── Auto_Scripts/download_folder_scan.sh # Bash script: auto scan Downloads folder
+/home/thts/Project/ClamAV
+├── Log/                          # Directory to store all ClamAV scan logs  
+├── Auto_Scripts/                 # Automation scripts running as background services  
+│   └── download_folder_scan.sh   # Bash script: auto scan Downloads folder  
+├── fullscan.sh                   # Bash script: full system scan  
+├── Desktop_Files/                # Desktop launcher files  
+│   ├── clamav-auto-scan.desktop  # Launcher for auto scan of Downloads  
+│   └── clamav-full-scan.desktop  # Launcher for full system scan
+
 
 ## ⚙️ Setup Instructions  
 ### Create directories  
