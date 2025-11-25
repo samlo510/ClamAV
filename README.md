@@ -149,14 +149,15 @@ To run the full system ClamAV scan every day at 2 AM, add the following to your 
 ```cron
 0 2 * * * /home/thts/Project/ClamAV/Auto_Scripts/system_full_scan.sh
 ```
- ┌───────────── minute (0 - 59)  
- │ ┌───────────── hour (0 - 23)  
- │ │ ┌───────────── day of month (1 - 31)  
- │ │ │ ┌───────────── month (1 - 12)  
- │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday=0)  
- │ │ │ │ │  
- │ │ │ │ │  
- 0 2 * * * /home/thts/Project/ClamAV/Auto_Scripts/system_full_scan.sh  
+| Field        | Value | Meaning                                |  
+|--------------|-------|----------------------------------------|  
+| Minute       | 0     | At the start of the hour               |  
+| Hour         | 2     | At 2:00 AM                             |  
+| Day of Month | *     | Every day of the month                 |  
+| Month        | *     | Every month                            |  
+| Day of Week  | *     | Every day of the week (Sunday–Saturday)|  
+| Command      | /home/thts/Project/ClamAV/Auto_Scripts/system_full_scan.sh | Script executed |  
+
 
 ---
 
