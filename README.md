@@ -156,7 +156,7 @@ To run the full system ClamAV scan every day at 2 AM, add the following to your 
  │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday=0)  
  │ │ │ │ │  
  │ │ │ │ │  
- 0 2 * * * /home/thts/Project/ClamAV/full_system_scan.sh  
+ 0 2 * * * /home/thts/Project/ClamAV/Auto_Scripts/system_full_scan.sh  
 
 ---
 
